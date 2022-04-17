@@ -6,31 +6,15 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 23:12:44 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/15 21:37:19 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/04/16 23:34:46 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_4(t_stack **a, t_stack **b)
+static void sidekick(t_stack **a, t_stack **b, int smallest)
 {
-	int	Smallest;
-
-	Smallest = find_MIN(a);
-	if (Smallest == 1)
-	{
-		push(a, b, 2);
-		sort_3(a);
-		push(b, a, 1);
-	}
-	else if (Smallest == 2)
-	{
-		swap(a, 1);
-		push(a, b, 2);
-		sort_3(a);
-		push(b, a, 1);
-	}
-	else if (Smallest == 3)
+	if (smallest == 3)
 	{
 		rotate(a, 1);
 		swap(a, 1);
@@ -38,11 +22,38 @@ void	sort_4(t_stack **a, t_stack **b)
 		sort_3(a);
 		push(b, a, 1);
 	}
-	else if (Smallest == 4)
+	else if (smallest == 4)
 	{
 		r_rotate(a, 1);
 		push(a, b, 2);
 		sort_3(a);
 		push(b, a, 1);
+	}
+}
+
+void	sort_4(t_stack **a, t_stack **b, int ac)
+{
+	int	smallest;
+
+	smallest = find_MIN(a);
+	if (sorted(a, ac) == 1)
+		return;
+	else
+	{
+		if (smallest == 1)
+		{
+			push(a, b, 2);
+			sort_3(a);
+			push(b, a, 1);
+		}
+		else if (smallest == 2)
+		{
+			swap(a, 1);
+			push(a, b, 2);
+			sort_3(a);
+			push(b, a, 1);
+		}
+		else if (smallest == 3 || smallest == 4)
+			sidekick(a, b, smallest);
 	}
 }
