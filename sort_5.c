@@ -6,7 +6,7 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/15 21:20:55 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/16 23:35:52 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/04/17 21:58:40 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	sort_5(t_stack **a, t_stack **b, int ac)
 {
 	int	smallest;
 
-	smallest = find_MIN(a);
+	smallest = find_min(a);
 	if (sorted(a, ac) == 1)
-		return;
+		return ;
 	else
 	{
 		if (smallest == 1)

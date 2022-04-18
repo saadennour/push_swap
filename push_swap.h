@@ -6,7 +6,7 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 00:23:28 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/16 23:35:03 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/04/18 00:35:58 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,10 @@ void		rrr(t_stack **a, t_stack **b);
 void		sort_3(t_stack **a);
 void		sort_4(t_stack **a, t_stack **b, int ac);
 void		sort_5(t_stack **a, t_stack **b, int ac);
-int			find_MAX(t_stack **a);
-int			find_MIN(t_stack **a);
+int			find_max(t_stack **a);
+int			find_min(t_stack **a);
 int			sorted(t_stack **a, int ac);
+char		*ft_itoa(int n);
+char		*first_digit(int nbr);
 
 #endif

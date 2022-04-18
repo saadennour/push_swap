@@ -1,5 +1,5 @@
-1- instructions must appear on shell
-2- stacks
-3- linked lists
-4- shanks
-5- sorting algo
+radix sort :
+
+sort positive numbers
+then the negative
+start with 100

@@ -6,7 +6,7 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 18:43:23 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/15 21:13:25 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/04/17 21:54:51 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	push(t_stack **first, t_stack **sec, int c)
 		printf ("pb\n");
 }
 
-void	rotate(t_stack **stack, int c) 
+void	rotate(t_stack **stack, int c)
 {
 	int	tmp;
 

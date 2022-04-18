@@ -6,18 +6,18 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 02:57:53 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/15 21:37:54 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/04/17 22:00:11 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_MAX(t_stack **a)
+int	find_max(t_stack **a)
 {
-	int max;
-	t_stack *tmp;
-	int index;
-	int i;
+	int		max;
+	t_stack	*tmp;
+	int		index;
+	int		i;
 
 	tmp = (*a);
 	max = tmp->data;
@@ -25,7 +25,7 @@ int	find_MAX(t_stack **a)
 	i = 1;
 	while (tmp)
 	{
-		if(max < tmp->data)
+		if (max < tmp->data)
 		{
 			max = tmp->data;
 			index = i;
@@ -36,12 +36,12 @@ int	find_MAX(t_stack **a)
 	return (index);
 }
 
-int	find_MIN(t_stack **a)
+int	find_min(t_stack **a)
 {
-	int min;
-	t_stack *tmp;
-	int index;
-	int i;
+	int		min;
+	t_stack	*tmp;
+	int		index;
+	int		i;
 
 	tmp = (*a);
 	min = tmp->data;
@@ -49,7 +49,7 @@ int	find_MIN(t_stack **a)
 	i = 1;
 	while (tmp)
 	{
-		if(min > tmp->data)
+		if (min > tmp->data)
 		{
 			min = tmp->data;
 			index = i;
@@ -60,26 +60,25 @@ int	find_MIN(t_stack **a)
 	return (index);
 }
 
-
 void	sort_3(t_stack **a)
 {
-	int	MAX;
-	int	MIN;
-	
-	MAX = find_MAX(a);
-	MIN = find_MIN(a);
-	if (MIN == 2 && MAX == 3)
+	int	max;
+	int	min;
+
+	max = find_max(a);
+	min = find_min(a);
+	if (min == 2 && max == 3)
 		swap(a, 1);
-	else if (MIN == 3 && MAX == 2)
+	else if (min == 3 && max == 2)
 		r_rotate(a, 1);
-	else if (MIN == 1 && MAX == 2)
+	else if (min == 1 && max == 2)
 	{
 		r_rotate(a, 1);
 		swap(a, 1);
 	}
-	else if (MIN == 2 && MAX == 1)
+	else if (min == 2 && max == 1)
 		rotate(a, 1);
-	else if (MIN == 3 && MAX == 1)
+	else if (min == 3 && max == 1)
 	{
 		rotate(a, 1);
 		swap(a, 1);

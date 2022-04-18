@@ -6,7 +6,7 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 19:14:29 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/16 23:38:23 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/04/17 21:54:08 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,9 @@ long long	ft_atoi(const char *str)
 
 int	sorted(t_stack **a, int ac)
 {
-	t_stack *tmp;
-	int min;
-	int i;
+	t_stack	*tmp;
+	int		min;
+	int		i;
 
 	tmp = (*a);
 	min = tmp->data;
