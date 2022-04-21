@@ -6,36 +6,11 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:51:15 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/18 00:38:19 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/04/21 02:19:52 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static char	*ft_strdup(const char *src)
-{
-	int		i;
-	int		j;
-	char	*p;
-
-	i = 0;
-	j = 0;
-	p = NULL;
-	while (src[i])
-		i++;
-	p = malloc((i + 1) * sizeof(char));
-	if (!(p))
-		return (NULL);
-	while (i > 0)
-	{
-		p[j] = src[j];
-		j++;
-		i--;
-	}
-	p[j] = '\0';
-	return (p);
-}
-
 
 static int	count(long int n)
 {

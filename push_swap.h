@@ -6,7 +6,7 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 00:23:28 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/18 00:35:58 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/04/21 02:17:06 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdio.h>
+# include "get_next_line.h"
 
 typedef struct s_stack
 {
@@ -50,5 +51,6 @@ int			find_min(t_stack **a);
 int			sorted(t_stack **a, int ac);
 char		*ft_itoa(int n);
 char		*first_digit(int nbr);
+void		big_sort(t_stack **a, t_stack **b, int ac);
 
 #endif
