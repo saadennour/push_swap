@@ -6,7 +6,7 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 18:43:23 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/17 21:54:51 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/05/09 14:38:00 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@ void	swap(t_stack **stack, int c)
 		printf ("sa\n");
 	else if (c == 2)
 		printf ("sb\n");
-}
-
-void	ss(t_stack **a, t_stack **b)
-{
-	swap(a, 0);
-	swap(b, 0);
-	printf ("ss\n");
 }
 
 void	push(t_stack **first, t_stack **sec, int c)
@@ -64,13 +57,6 @@ void	rotate(t_stack **stack, int c)
 		printf ("rb\n");
 }
 
-void	rr(t_stack **a, t_stack **b)
-{
-	rotate(a, 0);
-	rotate(b, 0);
-	printf ("rr\n");
-}
-
 void	r_rotate(t_stack **stack, int c)
 {
 	int	tmp;
@@ -84,11 +70,4 @@ void	r_rotate(t_stack **stack, int c)
 		printf ("rra\n");
 	else if (c == 2)
 		printf ("rrb\n");
-}
-
-void	rrr(t_stack **a, t_stack **b)
-{
-	r_rotate(a, 0);
-	r_rotate(b, 0);
-	printf ("rrr\n");
 }

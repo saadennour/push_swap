@@ -1,6 +1,0 @@
-radix sort :
-
-sort positive numbers
-then the negative
-start with 100
-know size of stack

@@ -6,65 +6,119 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:03:19 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/21 00:55:39 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/05/06 19:20:04 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*first_digit(int nbr)
+void	last_piece(t_stack **a)
 {
-	int		i;
-	char	*n = NULL;
-
-	i = 0;
-	n = ft_itoa(nbr);
-	while (n[i])
-		i++;
-	i--;
-	printf ("%c\n", n[i]);
-	return (n);
-}
-
-void	better_move(t_stack **a, int ac, int data)
-{
-	int	half;
-	static int	size;
-
-	size++;
-	half = (ac - size) / 2;
-	//printf ("\n size = %d && data = %d && half == %d\n", size, data, half);
-	if (data == 1)
-		return ;
-	if (data <= half)
-	{
-		while (data-- > 1)
-			rotate(a, 1);
-		return ;
-	}
-	while (data++ <= ac - size)
-		r_rotate(a, 1);
-	return ;
-}
-
-void	big_sort(t_stack **a, t_stack **b, int ac)
-{
+	int	size;
 	int	max;
-	int	i;
 
-	i = 0;
-	print_ll(a);
-	printf ("\n\n\n");
-	while (i++ < ac - 1)
+	size = ft_lstsize(*a);
+	max = find_max(a, 1);
+	if (max <= size / 2)
 	{
-		max = find_min(a);
-		better_move(a, ac, max);
-		push (a, b, 2);
+		while (max-- >= 1)
+			rotate(a, 1);
 	}
-	while (i--)
-		push (b, a, 1);
-	printf ("\n\n");
-	print_ll(a);
-	printf ("\n\n");
-	//print_ll(b);
+	else
+	{
+		while (max++ < size)
+			r_rotate(a, 1);
+	}
+}
+
+void	better_move(t_stack **a, int size, int near, int c)
+{
+	size = ft_lstsize(*a);
+	if (near < 1)
+		return ;
+	if (near <= size / 2)
+	{
+		while (near-- > 1)
+			rotate(a, c);
+	}
+	else
+	{
+		while (near++ <= size)
+			r_rotate(a, c);
+	}
+}
+
+int	nearest(t_stack **a, int num)
+{
+	int		comparor;
+	int		near;
+	int		index;
+	int		i;
+	t_stack	*tmp;
+
+	index = 0;
+	comparor = INT_MAX;
+	tmp = *a;
+	while (tmp)
+	{
+		i = 0;
+		if (num < tmp->data)
+		{
+			i = tmp->data - num;
+			if (comparor > i)
+			{
+				comparor = i;
+				near = tmp->data;
+			}
+		}
+		tmp = tmp->next;
+	}
+	index = get_index(a, near);
+	return (index);
+}
+
+void	sorting(t_stack **a, t_stack **b, int size)
+{
+	int	move;
+	int	near;
+	int	lent;
+
+	move = 0;
+	near = 0;
+	lent = ft_lstsize(*b);
+	while (lent--)
+	{
+		size = ft_lstsize(*a);
+		cmd_counter(a, b);
+		move = find_min_cmd(b, 0);
+		near = find_min_cmd(b, 1);
+		short_cut(a, b, move, near);
+		push(b, a, 1);
+	}
+	last_piece(a);
+}
+
+void	big_sort(t_stack **a, t_stack **b)
+{
+	int		max;
+	int		min;
+	int		size;
+	t_stack	*tmp;
+	int		i;
+
+	i = 1;
+	tmp = (*a);
+	size = ft_lstsize(*a);
+	max = find_max(a, 1);
+	min = find_min(a);
+	while (tmp && i <= size)
+	{
+		if (i != max && i != min)
+			push(a, b, 2);
+		else
+			rotate(a, 1);
+		i++;
+		tmp = tmp->next;
+	}
+	sorting(a, b, size);
 }

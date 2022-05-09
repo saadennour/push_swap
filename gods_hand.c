@@ -6,15 +6,12 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 19:14:29 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/04/17 21:54:08 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/05/09 13:34:14 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void god_caller(char *s, t_stack *a, t_stack *b)
-// {
-// }
 int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
@@ -54,22 +51,18 @@ long long	ft_atoi(const char *str)
 	return (result * negativity);
 }
 
-int	sorted(t_stack **a, int ac)
+int	sorted(t_stack **a)
 {
 	t_stack	*tmp;
-	int		min;
-	int		i;
+	int		size;
 
 	tmp = (*a);
-	min = tmp->data;
-	i = 0;
-	while (tmp && min <= tmp->data)
+	size = ft_lstsize(*a);
+	while (size-- > 1)
 	{
-		i++;
+		if (tmp->data > tmp->next->data)
+			return (1);
 		tmp = tmp->next;
 	}
-	printf ("i = %d\n", i);
-	if (i == ac - 1)
-		return (1);
 	return (0);
 }
