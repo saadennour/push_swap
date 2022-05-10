@@ -6,7 +6,7 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 18:23:49 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/05/09 14:54:46 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/05/09 15:02:45 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,10 @@ t_stack	*pop_last(t_stack *head)
 		free (head);
 		return (NULL);
 	}
-	// Find the second last t_stack
 	second_last = head;
 	while (second_last->next->next != NULL)
 		second_last = second_last->next;
-	// Delete last t_stack
 	free (second_last->next);
-	// Change next of second last
 	second_last->next = NULL;
 	return (head);
 }

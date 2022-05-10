@@ -6,7 +6,7 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 00:23:28 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/05/08 18:04:37 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/05/10 20:59:02 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_stack
 	int				near;
 }				t_stack;
 
-void		tab_to_ll(char **av, int ac, t_stack **a );
+void		tab_to_ll(char **av, int ac, t_stack **a);
 int			check(char **av, int ac);
 t_stack		*ft_lstnew(int data);
 void		ft_lstadd_front(t_stack **lst, t_stack *new);
