@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   double_hit.c                                       :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/09 14:37:22 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/05/11 17:35:47 by sfarhan          ###   ########.fr       */
+/*   Created: 2021/12/06 01:08:41 by sfarhan           #+#    #+#             */
+/*   Updated: 2022/05/11 20:04:03 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
+# include <stdlib.h>
+# include <unistd.h>
 
-void	ss(t_stack **a, t_stack **b, int c)
-{
-	swap(a, 0);
-	swap(b, 0);
-	if (c == 1)
-		write (1, "ss\n", 3);
-}
+char	*get_next_line(int fd, int BUFFER_SIZE);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_substr(char *s, int start, int len);
+int		ft_strlen(char *str);
+char	*ft_strdup(char *src);
 
-void	rr(t_stack **a, t_stack **b, int c)
-{
-	rotate(a, 0);
-	rotate(b, 0);
-	if (c == 1)
-		write (1, "rr\n", 3);
-}
-
-void	rrr(t_stack **a, t_stack **b, int c)
-{
-	r_rotate(a, 0);
-	r_rotate(b, 0);
-	if (c == 1)
-		write (1, "rrr\n", 4);
-}
+#endif

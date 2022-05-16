@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/07 19:31:14 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/05/09 14:35:48 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/05/13 14:58:56 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	free_it_all(char **str)
+static void	free_it_all(char **str)
 {
 	int	i;
 
@@ -25,7 +25,7 @@ void	free_it_all(char **str)
 	free(str);
 }
 
-int	ft_strcmp(char *s1, char *s2)
+static int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
@@ -37,7 +37,7 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-int	exist(char *instr)
+static int	exist(char *instr)
 {
 	int		i;
 	char	**moves;
@@ -57,7 +57,7 @@ int	exist(char *instr)
 	return (0);
 }
 
-void	sort_it(t_stack **a, t_stack **b, char *instr)
+static void	sort_it(t_stack **a, t_stack **b, char *instr)
 {
 	if (ft_strcmp(instr, "sa\n") == 0)
 		swap(a, 0);
@@ -89,25 +89,23 @@ int	main(int ac, char **av)
 	t_stack	*b;
 	char	*instr;
 
-	instr = get_next_line(0, 3);
-	a = NULL;
-	b = NULL;
-	tab_to_ll(av, ac, &a);
-	while (instr != NULL)
+	if (ac >= 2)
 	{
-		if (exist(instr) == 0)
-		{
-			printf ("Error\n");
-			return (0);
-		}
-		sort_it(&a, &b, instr);
-		free(instr);
+		checker_errors(ac, av);
+		tab_to_ll(av, ac, &a);
 		instr = get_next_line(0, 3);
+		while (instr != NULL)
+		{
+			if (exist(instr) == 0)
+			{
+				write (1, "Error\n", 6);
+				return (0);
+			}
+			sort_it(&a, &b, instr);
+			free(instr);
+			instr = get_next_line(0, 3);
+		}
+		done_or_not(&a, &b);
 	}
-	if (sorted(&a) == 0 && ft_lstsize(b) == 0
-		&& check(av, ac) != 0)
-		printf ("OK\n");
-	else
-		printf ("KO\n");
 	return (0);
 }

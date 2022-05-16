@@ -6,7 +6,7 @@
 /*   By: sfarhan <sfarhan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/17 22:03:19 by sfarhan           #+#    #+#             */
-/*   Updated: 2022/05/10 21:41:21 by sfarhan          ###   ########.fr       */
+/*   Updated: 2022/05/11 19:45:41 by sfarhan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	sorting(t_stack **a, t_stack **b, int size)
 	move = 0;
 	near = 0;
 	lent = ft_lstsize(*b);
-	while (lent-- > 1)
+	while (lent--)
 	{
 		size = ft_lstsize(*a);
 		cmd_counter(a, b);
@@ -113,7 +113,7 @@ void	big_sort(t_stack **a, t_stack **b)
 	min = find_min(a);
 	while (tmp && i <= size)
 	{
-		if (i != max && i != min)
+		if (i != min && i != max)
 			push(a, b, 2);
 		else
 			rotate(a, 1);
